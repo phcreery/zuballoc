@@ -156,10 +156,10 @@ pub fn deinit(self: *Self, gpa: Allocator) void {
 
 pub fn reset(self: *Self) void {
     self.free_storage = 0;
-    self.used_bins_top = .initEmpty();
+    self.used_bins_top = .empty;
     self.free_offset = .from(@intCast(self.maxAllocCount()));
 
-    @memset(&self.used_bins, .initEmpty());
+    @memset(&self.used_bins, .empty);
     @memset(&self.bin_indices, .unused);
 
     const node_count = (self.maxAllocCount() + 1);
