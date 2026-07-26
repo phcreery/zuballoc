@@ -60,8 +60,8 @@ const Node = struct {
     pub const Log2Index = math.Log2Int(IndexType);
 };
 
-const is_debug = (builtin.mode == .Debug);
-const is_safe = (is_debug or builtin.mode == .ReleaseSafe);
+const is_debug = (builtin.mode == .debug);
+const is_safe = (is_debug or builtin.mode == .safe);
 
 // Make automatic OOB checks possible in safe builds
 const Nodes = if (is_safe) []Node else [*]Node;
